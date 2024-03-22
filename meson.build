@@ -1,1 +1,7 @@
-executable('gssdp-discover', ['gssdp-discover.c'], dependencies : [gssdp, gobject, config_header], install: true)
+project('gssdp-discover', 'c')
+glib_version = '2.68'
+glib = dependency('glib-2.0', version: '>= ' + glib_version)
+gssdp = dependency('gssdp-1.6', version: '>= 1.6.0', default_options: ['sniffer=false'])
+gobject = dependency('gobject-2.0', version: '>= ' + glib_version)
+
+executable('gssdp-discover', ['gssdp-discover.c'], dependencies : [gssdp, gobject], install: true)
