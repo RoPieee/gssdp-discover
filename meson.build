@@ -7,6 +7,7 @@ gobject = dependency('gobject-2.0', version: '>= ' + glib_version)
 prefix = get_option('prefix')
 datadir = join_paths(prefix, get_option('datadir'))
 localedir = join_paths(prefix, get_option('localedir'))
+shareddir = join_paths(datadir, meson.project_name())
 
 conf = configuration_data()
 conf.set('VERSION', '"@0@"'.format(meson.project_version()))
