@@ -4,6 +4,10 @@ glib = dependency('glib-2.0', version: '>= ' + glib_version)
 gssdp = dependency('gssdp-1.6', version: '>= 1.6.0', default_options: ['sniffer=false'])
 gobject = dependency('gobject-2.0', version: '>= ' + glib_version)
 
+prefix = get_option('prefix')
+datadir = join_paths(prefix, get_option('datadir'))
+localedir = join_paths(prefix, get_option('localedir'))
+
 conf = configuration_data()
 conf.set('VERSION', '"@0@"'.format(meson.project_version()))
 conf.set('DATA_DIR', '"@0@"'.format(shareddir))
